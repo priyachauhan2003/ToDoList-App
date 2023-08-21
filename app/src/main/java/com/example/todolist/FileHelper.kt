@@ -13,7 +13,6 @@ class FileHelper {
 
     fun writeData(item:ArrayList<String>,context:Context){
         var fos : FileOutputStream = context.openFileOutput(FILENAME,Context.MODE_PRIVATE)
-
         var oas = ObjectOutputStream(fos)
         oas.writeObject(item)
         oas.close()
@@ -22,12 +21,14 @@ class FileHelper {
     fun readData(context:Context) :ArrayList<String>{
         var itemlist : ArrayList<String>
 
-        try{
+        try
+        {
             var fis : FileInputStream = context.openFileInput(FILENAME)
             var ois = ObjectInputStream(fis)
             itemlist = ois.readObject() as ArrayList<String>
         }
-        catch (e:FileNotFoundException){
+        catch (e:FileNotFoundException)
+        {
             itemlist=ArrayList()
         }
 
